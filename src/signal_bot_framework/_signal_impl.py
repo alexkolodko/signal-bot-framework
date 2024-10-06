@@ -157,10 +157,10 @@ class SignalBotImpl(SignalBot, Personality, JsonRpcHandler):
             self.__log.warning("Received NotificationFrame with null Envelope: %r", message)
             return
 
-        timestamp = datetime.fromtimestamp(envelope['timestamp'] / 1000.0)
-        if timestamp <= self.__start_time:
-            self.__log.warning("Received message from before signal_bot_framework started (%r).", timestamp)
-            return
+        # timestamp = datetime.fromtimestamp(envelope['timestamp'] / 1000.0)
+        # if timestamp <= self.__start_time:
+        #     self.__log.warning("Received message from before signal_bot_framework started (%r).", timestamp)
+        #     return
 
         match envelope:
             case {'typingMessage': _}:
